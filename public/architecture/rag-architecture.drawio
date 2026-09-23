@@ -1,0 +1,142 @@
+<mxfile host="app.diagrams.net" modified="2026-09-23T14:20:00.000Z" agent="ChatGPT" version="24.7.17">
+  <diagram id="rag-arch" name="RAG Architecture">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="AI Knowledge Server (RAG) Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;fontColor=#111827;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="520" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lane1" value="Presentation Layer" style="swimlane;html=1;rounded=1;startSize=28;horizontal=0;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#0F172A;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="1500" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="frontend" value="Next.js / React Chat UI&#xa;- chat interface&#xa;- source citation panel&#xa;- new chat / conversation state" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#60A5FA;fontColor=#1E3A8A;fontSize=14;spacing=8;" vertex="1" parent="lane1">
+          <mxGeometry x="30" y="40" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="upload" value="Document Upload UI&#xa;- file upload&#xa;- query input" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#60A5FA;fontColor=#1E3A8A;fontSize=14;spacing=8;" vertex="1" parent="lane1">
+          <mxGeometry x="360" y="40" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lane2" value="Backend API &amp; Retrieval Pipeline" style="swimlane;html=1;rounded=1;startSize=28;horizontal=0;fillColor=#FFFBEB;strokeColor=#FCD34D;fontColor=#78350F;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="220" width="1500" height="310" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="api" value="FastAPI Backend&#xa;REST API / orchestration" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#F59E0B;fontColor=#92400E;fontSize=14;spacing=8;" vertex="1" parent="lane2">
+          <mxGeometry x="30" y="50" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="parse" value="Document Parsing &amp; Chunking&#xa;- PDF / DOCX / TXT&#xa;- chunk creation + metadata" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#F59E0B;fontColor=#92400E;fontSize=14;spacing=8;" vertex="1" parent="lane2">
+          <mxGeometry x="250" y="50" width="230" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="embed" value="Embedding / Indexing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#F59E0B;fontColor=#92400E;fontSize=14;spacing=8;" vertex="1" parent="lane2">
+          <mxGeometry x="520" y="50" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="rewrite" value="Query Rewrite" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDE68A;strokeColor=#D97706;fontColor=#78350F;fontSize=14;spacing=8;" vertex="1" parent="lane2">
+          <mxGeometry x="250" y="180" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="retrieve" value="Hybrid Retrieval&#xa;- BM25 / FTS5&#xa;- Vector search" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDE68A;strokeColor=#D97706;fontColor=#78350F;fontSize=14;spacing=8;" vertex="1" parent="lane2">
+          <mxGeometry x="470" y="170" width="210" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="rrf" value="RRF Fusion" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDE68A;strokeColor=#D97706;fontColor=#78350F;fontSize=14;spacing=8;" vertex="1" parent="lane2">
+          <mxGeometry x="720" y="180" width="150" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="rerank" value="Cross-Encoder Reranker" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDE68A;strokeColor=#D97706;fontColor=#78350F;fontSize=14;spacing=8;" vertex="1" parent="lane2">
+          <mxGeometry x="910" y="180" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="context" value="Context Builder&#xa;- top-k passages&#xa;- citation metadata" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDE68A;strokeColor=#D97706;fontColor=#78350F;fontSize=14;spacing=8;" vertex="1" parent="lane2">
+          <mxGeometry x="1150" y="170" width="190" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="llm" value="LLM Answer Generation&#xa;- grounded answer&#xa;- abstain when evidence is insufficient" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDE68A;strokeColor=#D97706;fontColor=#78350F;fontSize=14;spacing=8;" vertex="1" parent="lane2">
+          <mxGeometry x="1360" y="165" width="120" height="85" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lane3" value="Data &amp; Platform Services" style="swimlane;html=1;rounded=1;startSize=28;horizontal=0;fillColor=#F5F3FF;strokeColor=#C4B5FD;fontColor=#4C1D95;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="1500" height="210" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="vectordb" value="ChromaDB&#xa;document chunks + embeddings" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE9FE;strokeColor=#8B5CF6;fontColor=#5B21B6;fontSize=14;spacing=8;" vertex="1" parent="lane3">
+          <mxGeometry x="200" y="65" width="230" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="keyword" value="Keyword Index&#xa;FTS5 / BM25" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE9FE;strokeColor=#8B5CF6;fontColor=#5B21B6;fontSize=14;spacing=8;" vertex="1" parent="lane3">
+          <mxGeometry x="480" y="65" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="langfuse" value="Langfuse Observability&#xa;- traces / spans&#xa;- latency / debugging&#xa;- sessions / metadata" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#22C55E;fontColor=#166534;fontSize=14;spacing=8;" vertex="1" parent="lane3">
+          <mxGeometry x="760" y="55" width="250" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="eval" value="Evaluation / Benchmarking&#xa;- bad case analysis&#xa;- held-out test set" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#22C55E;fontColor=#166534;fontSize=14;spacing=8;" vertex="1" parent="lane3">
+          <mxGeometry x="1070" y="65" width="220" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="out" value="Grounded Answer + Citations" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#22C55E;fontColor=#166534;fontSize=14;fontStyle=1;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1190" y="80" width="300" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Edges -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="frontend" target="api">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="upload" target="api">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="api" target="parse">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="parse" target="embed">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="frontend" target="rewrite">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="rewrite" target="retrieve">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="retrieve" target="rrf">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="rrf" target="rerank">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="rerank" target="context">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="context" target="llm">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="llm" target="out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e12" value="write embeddings" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#8B5CF6;strokeWidth=2;dashed=1;endArrow=block;endFill=1;fontColor=#5B21B6;" edge="1" parent="1" source="embed" target="vectordb">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e13" value="write keywords" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#8B5CF6;strokeWidth=2;dashed=1;endArrow=block;endFill=1;fontColor=#5B21B6;" edge="1" parent="1" source="parse" target="keyword">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e14" value="search" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#8B5CF6;strokeWidth=2;dashed=1;endArrow=block;endFill=1;fontColor=#5B21B6;" edge="1" parent="1" source="vectordb" target="retrieve">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e15" value="search" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#8B5CF6;strokeWidth=2;dashed=1;endArrow=block;endFill=1;fontColor=#5B21B6;" edge="1" parent="1" source="keyword" target="retrieve">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e16" value="trace spans" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#22C55E;strokeWidth=2;dashed=1;endArrow=block;endFill=1;fontColor=#166534;" edge="1" parent="1" source="rewrite" target="langfuse">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#22C55E;strokeWidth=2;dashed=1;endArrow=block;endFill=1;" edge="1" parent="1" source="retrieve" target="langfuse">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#22C55E;strokeWidth=2;dashed=1;endArrow=block;endFill=1;" edge="1" parent="1" source="rerank" target="langfuse">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#22C55E;strokeWidth=2;dashed=1;endArrow=block;endFill=1;" edge="1" parent="1" source="llm" target="langfuse">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#22C55E;strokeWidth=2;dashed=1;endArrow=block;endFill=1;" edge="1" parent="1" source="langfuse" target="eval">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

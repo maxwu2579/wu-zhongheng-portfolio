@@ -9,7 +9,6 @@ import {
   Mail,
   MapPin,
   ShieldCheck,
-  Sparkles,
 } from "lucide-react";
 import { ArchitectureViewer } from "@/components/ArchitectureViewer";
 import { Navbar } from "@/components/Navbar";
@@ -210,18 +209,13 @@ export default function Home() {
                 <div><h4>AI 代码差异审查服务</h4><p>构建异步代码审查 HTTP 服务，接收 unified diff 后按文件边界分块扫描并生成结构化结果；支持轮询与 SSE，并实现幂等键、内容缓存、限流及并发控制。</p><div className="mini-stack"><span>Python</span><span>FastAPI</span><span>asyncio</span><span>SSE</span><span>DeepSeek API</span></div></div>
                 <a href="https://github.com/maxwu2579/diff-review-service" aria-label="查看 AI 代码差异审查服务 GitHub 仓库" {...externalProps}><GithubMark /> <ArrowUpRight /></a>
               </article>
-              <article className="small-project reveal">
-                <div className="small-project-icon"><Sparkles /></div>
-                <div><h4>游戏自动化机器人</h4><p>基于 OpenCV 模板匹配与 PyAutoGUI 开发桌面自动化工具，通过阈值控制降低视觉相似场景误识别，并提供 GUI 控制面板和多种自动化模式。</p><div className="mini-stack"><span>Python</span><span>PyAutoGUI</span><span>OpenCV</span><span>Tkinter</span></div></div>
-                <a href="https://github.com/maxwu2579/bot-server" aria-label="查看游戏自动化机器人 GitHub 仓库" {...externalProps}><GithubMark /> <ArrowUpRight /></a>
-              </article>
             </div>
           </div>
         </section>
 
         <section className="section" id="experience">
           <div className="container">
-            <SectionHeading eyebrow="02 / EXPERIENCE" title="实习经历" description="以评测和技术验证为核心，逐步进入真实 AI Server 工程场景。" />
+            <SectionHeading eyebrow="02 / EXPERIENCE" title="实习经历" description="围绕企业 AI Server / RAG 场景开展检索方案验证、模型评测与 Pipeline 优化。" />
             <article className="experience-card reveal">
               <div className="experience-mark"><BriefcaseBusiness /></div>
               <div className="experience-main">

@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "吴忠衡 | AI Application · Agent · AI Backend",
   description: "2027届信息科技本科生，主要方向为 AI 应用开发、RAG、Agent 与 AI Backend。",
-  metadataBase: new URL("https://maxwu2579.github.io"),
+  metadataBase: new URL("https://wu-zhongheng-portfolio.vercel.app"),
   openGraph: {
     title: "吴忠衡 | AI Application · Agent · AI Backend",
     description: "2027届信息科技本科生，主要方向为 AI 应用开发、RAG、Agent 与 AI Backend。",
@@ -29,4 +29,3 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     </html>
   );
 }
-

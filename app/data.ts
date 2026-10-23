@@ -46,7 +46,7 @@ export const skills = [
   {
     title: "Programming",
     description: "以 Python 与 TypeScript 为主的多语言开发能力。",
-    items: ["Python", "TypeScript", "JavaScript", "SQL", "Java", "C++"],
+    items: ["Python", "TypeScript", "JavaScript", "C#", "SQL", "Java", "C++"],
   },
   {
     title: "证书 / 语言",
@@ -57,6 +57,7 @@ export const skills = [
 
 export const navigation = [
   { id: "projects", label: "项目" },
+  { id: "enterprise", label: "企业工程" },
   { id: "experience", label: "实习经历" },
   { id: "skills", label: "技能" },
   { id: "education", label: "教育背景" },

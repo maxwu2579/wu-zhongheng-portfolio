@@ -196,14 +196,101 @@ export default function Home() {
                   <div className="test-note"><ShieldCheck size={19} aria-hidden="true" /><span>截图中的 <b>fake-model</b> 与 <b>This is a fake reply.</b> 是 intentionally isolated test environment 的预期行为，不代表真实模型尚未接入。</span></div>
                 </div>
                 <div className="testing-image">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/images/jarvis-test-env.png" alt="JARVIS 隔离测试环境，界面明确显示 fake-model 和 This is a fake reply" />
+                  <a href="/images/jarvis-test-env.png" target="_blank" rel="noopener noreferrer" aria-label="查看 JARVIS 隔离测试环境原图">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/images/jarvis-test-env.png" alt="JARVIS 隔离测试环境，界面明确显示 fake-model 和 This is a fake reply" />
+                  </a>
                 </div>
               </div>
             </article>
+          </div>
+        </section>
 
+        <section className="section enterprise-section" id="enterprise">
+          <div className="container">
+            <SectionHeading eyebrow="02 / ENTERPRISE ENGINEERING" title="企业工程实践" description="把 AI 系统之外的工程能力，落在可追溯的数据链路、明确的安全边界与可交付的业务工具上。" />
+            <p className="enterprise-disclosure reveal">下方为脱敏或 Demo 界面截图；模拟环境、设备未连接及未验证状态均按画面原样说明。</p>
+
+            <article className="project enterprise-project">
+              <div className="project-header reveal">
+                <div>
+                  <div className="tag-row"><Tag tone="teal">Development / Simulation Validated</Tag><Tag tone="neutral">Industrial Software</Tag></div>
+                  <p className="project-number">ENTERPRISE PROJECT 01</p>
+                  <h3>Smart Track V2 <span>/ 工业 OCR 追溯与异常检测系统</span></h3>
+                  <p className="project-lead">面向工业生产现场的 Windows 桌面系统：目标是接收相机 OCR 扫描数据，按产品规则区分合格与异常，并支持批次追溯和历史查询；当前以模拟输入验证。</p>
+                </div>
+              </div>
+              <div className="stack-line reveal" aria-label="Smart Track V2 技术栈">
+                {['C# / WinForms', 'Python / FastAPI', 'PostgreSQL', 'TCP/IP', 'MX Component 适配', 'pytest / xUnit'].map((item) => <span key={item}>{item}</span>)}
+              </div>
+              <div className="enterprise-body">
+                <div className="enterprise-copy reveal">
+                  <span className="mini-label">ENGINEERING HIGHLIGHTS</span>
+                  <h4>从扫描事件到可追溯结果</h4>
+                  <CapabilityList items={[
+                    'Factory / Product / Batch 管理与版本化产品规则',
+                    '区分 Duplicate、Low Score、Count Too Short 与 No Read',
+                    '扫描记录持久化、历史检索与 Excel 导出',
+                    'FakeCamera / FakePLC 自动化验证、异常恢复和拒绝输出安全边界',
+                  ]} />
+                  <p className="enterprise-status">真实相机与 PLC 连接仍需现场验证；模拟分流不代表实际 PLC 写入或生产上线。</p>
+                </div>
+                <div className="workflow-panel reveal" aria-label="Smart Track V2 工程链路示意，非运行截图">
+                  <span className="mini-label">SYSTEM FLOW / SIMULATION</span>
+                  <div className="workflow-steps"><span>OCR Scan</span><span>Rule Check</span><span>Trace &amp; Review</span></div>
+                  <p>WinForms 客户端 → FastAPI → PostgreSQL</p>
+                  <small>设备接入与 MX Component 适配处于开发及现场验证阶段</small>
+                </div>
+              </div>
+              <div className="enterprise-gallery">
+                <ScreenshotFigure src="/images/smart-track-console-redacted.png" width={1731} height={909} alt="Smart Track V2 Console 脱敏截图：FAKE CAM、NOT RUNNING、无扫描结果，且拒绝输出不可用" title="Console / 模拟运行台" description="脱敏截图：当前为 FakeCamera 模拟输入，尚无扫描结果；画面提示 MX Component 不可用、拒绝输出未写入，不能视作现场生产验证。" />
+                <ScreenshotFigure src="/images/smart-track-profiles-redacted.png" width={1731} height={909} alt="Smart Track V2 Profiles 脱敏截图：产品规则列表与版本列，工厂和产品标识已遮盖" title="Profiles / 产品规则" description="脱敏截图：展示 Minimum Score、Expected Count 和规则版本字段；该画面未选中产品，右侧详情与历史版本表为空。" />
+              </div>
+            </article>
+
+            <article className="project enterprise-project">
+              <div className="project-header reveal">
+                <div>
+                  <div className="tag-row"><Tag>v1.0.0 Released</Tag><Tag tone="violet">Advanced Features in Development</Tag><Tag tone="neutral">Business Automation</Tag></div>
+                  <p className="project-number">ENTERPRISE PROJECT 02</p>
+                  <h3>Material Requirement &amp; Stock Checker <span>/ 企业 BOM 与库存核对系统</span></h3>
+                  <p className="project-lead">读取产品 BOM 与库存 Excel，按产品和计划数量计算物料需求，区分缺料、数据异常与库存充足，并导出可复查的报告。</p>
+                </div>
+                <a className="project-link" href="https://github.com/maxwu2579/Auraplex_Material_Stock_Checker" aria-label="查看 Material Requirement and Stock Checker GitHub 仓库" {...externalProps}><GithubMark size={19} />查看公开版<ArrowUpRight size={16} /></a>
+              </div>
+              <div className="stack-line reveal" aria-label="Material Requirement and Stock Checker 技术栈">
+                {['Python', 'Excel', 'SQLite（开发扩展）', 'PyInstaller', 'Automated Testing'].map((item) => <span key={item}>{item}</span>)}
+              </div>
+              <div className="enterprise-body">
+                <div className="enterprise-copy reveal">
+                  <span className="mini-label">RELEASED / v1.0.0</span>
+                  <h4>让物料核对结果可复查</h4>
+                  <CapabilityList items={[
+                    '只读解析 BOM 与库存文件，按 Product ID 和 Quantity 计算需求',
+                    '将 Shortage、Exception 与 Enough 分开呈现',
+                    '导出含 Shortage 与 Exceptions 工作表的 Excel 报告',
+                  ]} />
+                  <p className="enterprise-status">本地开发扩展：SQLite 历史快照、缓存与库存助手原型；历史观察不等于实时云库存，AI/外发能力不属于公开 v1.0.0。</p>
+                </div>
+                <div className="workflow-panel workflow-panel-material reveal" aria-label="Material Checker 已发布计算流程示意，非运行截图">
+                  <span className="mini-label">BOM WORKFLOW / v1.0.0</span>
+                  <div className="workflow-steps"><span>BOM Calculation</span><span>Stock Validation</span><span>Shortage Detection</span><span>Excel Export</span></div>
+                  <p>源 Excel 只读 · 报告另存</p>
+                  <small>本地历史数据与 Cloud Not Verified 状态需分开理解</small>
+                </div>
+              </div>
+              <div className="enterprise-gallery">
+                <ScreenshotFigure src="/images/material-checker-demo.png" width={3750} height={1968} alt="Material Requirement & Stock Checker 本地 Demo 界面：BOM 和库存 Excel 样例计算出一项缺料，Cloud Not Verified" title="BOM 核对 / Demo 数据" description="本地开发版 Demo 截图：按样例 BOM 与库存算出 1 项缺料；画面显示 Local File Checked、Cloud Not Verified，不代表云端库存已核验。" />
+                <ScreenshotFigure src="/images/inventory-assistant-prototype.png" width={2166} height={1968} alt="Inventory Assistant 开发原型空白对话界面：UNVERIFIED、SQLite 历史记录、Cloud Not Verified" title="Inventory Assistant / 开发原型" description="开发原型的空白对话界面，并未展示真实 AI 回答。SQLite 历史记录不等于实时库存；外发授权关闭，云端未验证。" />
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section className="section other-section" id="other-projects">
+          <div className="container">
             <div className="other-projects">
-              <div className="subsection-title reveal"><span>ALSO BUILT</span><h3>其他项目</h3></div>
+              <div className="subsection-title reveal"><span>03 / ALSO BUILT</span><h3>其他项目</h3></div>
               <article className="small-project reveal">
                 <div className="small-project-icon"><BookOpenCheck /></div>
                 <div><h4>AI 代码差异审查服务</h4><p>构建异步代码审查 HTTP 服务，接收 unified diff 后按文件边界分块扫描并生成结构化结果；支持轮询与 SSE，并实现幂等键、内容缓存、限流及并发控制。</p><div className="mini-stack"><span>Python</span><span>FastAPI</span><span>asyncio</span><span>SSE</span><span>DeepSeek API</span></div></div>
@@ -215,7 +302,7 @@ export default function Home() {
 
         <section className="section" id="experience">
           <div className="container">
-            <SectionHeading eyebrow="02 / EXPERIENCE" title="实习经历" description="围绕企业 AI Server / RAG 场景开展检索方案验证、模型评测与 Pipeline 优化。" />
+            <SectionHeading eyebrow="04 / EXPERIENCE" title="实习经历" description="从 AI 检索验证延伸到工业数据链路与业务工具，把方案落实为可检查的工程结果。" />
             <article className="experience-card reveal">
               <div className="experience-mark"><BriefcaseBusiness /></div>
               <div className="experience-main">
@@ -225,11 +312,11 @@ export default function Home() {
                 <p className="experience-location"><MapPin size={16} />Selangor, Malaysia</p>
               </div>
               <ul>
-                <li>围绕公司 AI Server / RAG 需求参与企业文档检索方案的技术验证。</li>
-                <li>进行 Embedding、Reranker 与本地推理方案的模型选型、对比和效果评测。</li>
-                <li>记录检索质量、推理延迟、内存占用与本地部署资源需求。</li>
-                <li>持续定位 Retrieval / Reranking Pipeline 的质量问题，形成可复用评测记录和技术建议。</li>
-                <li>持续学习 Web 与 AI Server 工程技术，为后续系统开发与集成做准备。</li>
+                <li><strong>AI / RAG 评测：</strong>围绕企业文档检索验证 Embedding、Reranker 与本地推理方案，记录检索质量、延迟、内存和部署资源需求，迭代 Pipeline 并整理技术建议。</li>
+                <li><strong>工业软件：</strong>参与 Smart Track V2 的 OCR 扫描处理、产品规则与批次追溯开发，将扫描结果写入 PostgreSQL 并提供历史查询。</li>
+                <li><strong>可靠性验证：</strong>以 FakeCamera / FakePLC 和自动化测试检查异常分类、恢复及拒绝输出边界；真实相机和 PLC 仍待现场验证。</li>
+                <li><strong>业务工具：</strong>开发 BOM 与库存核对流程，按生产数量计算物料需求，区分缺料与数据异常并导出 Excel 报告。</li>
+                <li><strong>数据延伸：</strong>在本地开发版探索 SQLite 历史快照与库存助手，明确历史观察、文件验证及云端库存状态的区别。</li>
               </ul>
             </article>
           </div>
@@ -237,7 +324,7 @@ export default function Home() {
 
         <section className="section skills-section" id="skills">
           <div className="container">
-            <SectionHeading eyebrow="03 / TOOLKIT" title="技术技能" description="不以熟练度百分比包装能力，用项目中实际使用过的技术呈现工程范围。" />
+            <SectionHeading eyebrow="05 / TOOLKIT" title="技术技能" description="不以熟练度百分比包装能力，用项目中实际使用过的技术呈现工程范围。" />
             <div className="skills-grid">
               {skills.map((group, index) => (
                 <article className="skill-card reveal" key={group.title}>
@@ -251,7 +338,7 @@ export default function Home() {
 
         <section className="section" id="education">
           <div className="container">
-            <SectionHeading eyebrow="04 / EDUCATION" title="教育背景" />
+            <SectionHeading eyebrow="06 / EDUCATION" title="教育背景" />
             <article className="education-card reveal">
               <div className="education-year"><span>预计毕业</span><strong>2027.04</strong></div>
               <div><span className="mini-label">TAYLOR&apos;S UNIVERSITY</span><h3>泰莱大学</h3><p>信息科技学士</p></div>

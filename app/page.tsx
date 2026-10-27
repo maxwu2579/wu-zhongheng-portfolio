@@ -72,7 +72,7 @@ export default function Home() {
             <div className="hero-actions">
               <a className="primary-button" href="#projects">查看项目 <ArrowDown size={17} aria-hidden="true" /></a>
               <a className="secondary-button" href="https://github.com/maxwu2579" {...externalProps}><GithubMark size={17} />GitHub</a>
-              <a className="text-button" href="/resume/wu-zhongheng-resume.pdf" download><Download size={17} aria-hidden="true" />下载简历</a>
+              <a className="text-button" href="/resume/wu-zhongheng-resume-2027-ai.pdf" download><Download size={17} aria-hidden="true" />下载简历</a>
             </div>
             <div className="hero-contact">
               <a href="mailto:2579561724@qq.com"><Mail size={16} aria-hidden="true" />2579561724@qq.com</a>
@@ -356,7 +356,7 @@ export default function Home() {
             <strong>吴忠衡</strong><p>AI 应用研发 / Agent / AI Backend</p>
             <a href="mailto:2579561724@qq.com"><Mail size={17} />2579561724@qq.com</a>
             <a href="https://github.com/maxwu2579" {...externalProps}><GithubMark size={17} />github.com/maxwu2579<ArrowUpRight size={15} /></a>
-            <a className="primary-button" href="/resume/wu-zhongheng-resume.pdf" download><Download size={17} />下载简历</a>
+            <a className="primary-button" href="/resume/wu-zhongheng-resume-2027-ai.pdf" download><Download size={17} />下载简历</a>
           </div>
         </div>
         <div className="container footer-bottom"><span>© 2026 吴忠衡</span><Link href="#top">返回顶部 ↑</Link></div>

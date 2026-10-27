@@ -40,7 +40,7 @@ export function Navbar() {
             </a>
           ))}
         </div>
-        <a className="nav-resume" href="/resume/wu-zhongheng-resume.pdf" download>
+        <a className="nav-resume" href="/resume/wu-zhongheng-resume-2027-ai.pdf" download>
           <Download size={16} aria-hidden="true" />
           <span>下载简历</span>
         </a>

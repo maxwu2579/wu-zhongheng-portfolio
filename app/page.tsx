@@ -251,7 +251,7 @@ export default function Home() {
             <article className="project enterprise-project">
               <div className="project-header reveal">
                 <div>
-                  <div className="tag-row"><Tag>v1.0.0 Released</Tag><Tag tone="violet">Advanced Features in Development</Tag><Tag tone="neutral">Business Automation</Tag></div>
+                  <div className="tag-row"><Tag>v1.0.0 Released</Tag><Tag tone="violet">v1.1.0.dev0 Pre-release</Tag><Tag tone="neutral">B1 UI in Development</Tag></div>
                   <p className="project-number">ENTERPRISE PROJECT 02</p>
                   <h3>Material Requirement &amp; Stock Checker <span>/ 企业 BOM 与库存核对系统</span></h3>
                   <p className="project-lead">读取产品 BOM 与库存 Excel，按产品和计划数量计算物料需求，区分缺料、数据异常与库存充足，并导出可复查的报告。</p>
@@ -270,7 +270,7 @@ export default function Home() {
                     '将 Shortage、Exception 与 Enough 分开呈现',
                     '导出含 Shortage 与 Exceptions 工作表的 Excel 报告',
                   ]} />
-                  <p className="enterprise-status">本地开发扩展：SQLite 历史快照、缓存与库存助手原型；历史观察不等于实时云库存，AI/外发能力不属于公开 v1.0.0。</p>
+                  <p className="enterprise-status">公开稳定版为 v1.0.0，v1.1.0.dev0 为 Windows 测试版。截图中的浅蓝 B1 工作台、材料来源与库存图片仍在本地开发；SQLite 历史观察不等于实时库存，AI/外发能力不属于稳定版，云端状态仍为 Cloud Not Verified。</p>
                 </div>
                 <div className="workflow-panel workflow-panel-material reveal" aria-label="Material Checker 已发布计算流程示意，非运行截图">
                   <span className="mini-label">BOM WORKFLOW / v1.0.0</span>
@@ -279,9 +279,10 @@ export default function Home() {
                   <small>本地历史数据与 Cloud Not Verified 状态需分开理解</small>
                 </div>
               </div>
-              <div className="enterprise-gallery">
-                <ScreenshotFigure src="/images/material-checker-demo.png" width={3750} height={1968} alt="Material Requirement & Stock Checker 本地 Demo 界面：BOM 和库存 Excel 样例计算出一项缺料，Cloud Not Verified" title="BOM 核对 / Demo 数据" description="本地开发版 Demo 截图：按样例 BOM 与库存算出 1 项缺料；画面显示 Local File Checked、Cloud Not Verified，不代表云端库存已核验。" />
-                <ScreenshotFigure src="/images/inventory-assistant-prototype.png" width={2166} height={1968} alt="Inventory Assistant 开发原型空白对话界面：UNVERIFIED、SQLite 历史记录、Cloud Not Verified" title="Inventory Assistant / 开发原型" description="开发原型的空白对话界面，并未展示真实 AI 回答。SQLite 历史记录不等于实时库存；外发授权关闭，云端未验证。" />
+              <div className="enterprise-gallery material-gallery">
+                <ScreenshotFigure className="material-gallery-featured" src="/images/material-checker-b1-redacted.png" width={1731} height={908} alt="Material Requirement & Stock Checker B1 浅蓝工作台脱敏示意：三语切换、BOM 核对与结果表，业务值已遮盖" title="B1 工作台 / 脱敏展示" description="基于当前本地界面经 AI 辅助脱敏；文件路径、产品与物料编号、数量和时间均已遮盖。展示三语入口和核对结果表结构，不作为真实业务结果证明。" />
+                <ScreenshotFigure src="/images/material-checker-demo.png" width={3750} height={1968} alt="Material Requirement & Stock Checker 本地 Demo 界面：BOM 和库存 Excel 样例计算出一项缺料，Cloud Not Verified" title="BOM 核对 / 安全样例" description="本地 Demo 数据：按样例 BOM 与库存算出 1 项缺料；Local File Checked 只说明本地文件已核对，不代表云端库存已验证。" />
+                <ScreenshotFigure src="/images/inventory-assistant-b1-cropped.png" width={1204} height={1306} alt="Inventory Assistant B1 本地开发界面：空白对话、本地工具入口、UNVERIFIED 与 Cloud Not Verified" title="Inventory Assistant / 本地开发" description="新版助手窗口裁切展示：对话仍为空白，并未展示真实模型回答；本地工具可离线使用，模型外发需另行授权，历史记录不是当前库存。" />
               </div>
             </article>
           </div>
